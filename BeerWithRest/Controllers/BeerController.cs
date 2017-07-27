@@ -17,5 +17,28 @@ namespace BeerWithRest.Controllers
         {
             return beerRepository.GetAllBeers();
         }
+
+        public Beer Get(string id)
+        {
+            return beerRepository.GetBeer(id);
+        }
+
+        [HttpPost]
+        public bool Post(Beer beer)
+        {
+            return beerRepository.AddBeer(beer);
+        }
+
+        [HttpPut]
+        public Beer Put(Beer beer)
+        {
+            return beerRepository.UpdateBeer(beer);
+        }
+
+        [HttpDelete]
+        public bool Delete(string id)
+        {
+            return beerRepository.DeleteBeer(id);
+        }
     }
 }
