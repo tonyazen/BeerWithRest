@@ -21,12 +21,12 @@ namespace BeerWithRest.Services
                     {
                         new Beer
                         {
-                            Id = 1,
+                            Id = "1",
                             Name = "Red's Rye"
                         },
                         new Beer
                         {
-                            Id = 2,
+                            Id = "2",
                             Name = "Dragon's Milk"
                         }
                     };
@@ -49,7 +49,7 @@ namespace BeerWithRest.Services
             {
                     new Beer
                     {
-                        Id = 0,
+                        Id = "0",
                         Name = "Placeholder"
                     }
             };
