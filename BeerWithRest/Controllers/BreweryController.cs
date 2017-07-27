@@ -1,44 +1,44 @@
-﻿using System.Web.Mvc;
-using BeerWithRest.Models;
+﻿using BeerWithRest.Models;
 using BeerWithRest.Services;
+using System.Web.Http;
 
 namespace BeerWithRest.Controllers
 {
-    public class BreweryController : Controller
+    public class BreweryController : ApiController
     {
-        private BreweryRepository breweryRepository;
+        private readonly BreweryRepository _breweryRepository;
 
         public BreweryController()
         {
-            this.breweryRepository = new BreweryRepository();
+            _breweryRepository = new BreweryRepository();
         }
 
         public Brewery[] Get()
         {
-            return breweryRepository.GetAllBreweries();
+            return _breweryRepository.GetAllBreweries();
         }
 
         public Brewery Get(string id)
         {
-            return breweryRepository.GetBrewery(id);
+            return _breweryRepository.GetBrewery(id);
         }
 
         [HttpPost]
         public bool Post(Brewery brewery)
         {
-            return breweryRepository.AddBrewery(brewery);
+            return _breweryRepository.AddBrewery(brewery);
         }
 
         [HttpPut]
         public Brewery Put(Brewery brewery)
         {
-            return breweryRepository.UpdateBrewery(brewery);
+            return _breweryRepository.UpdateBrewery(brewery);
         }
 
         [HttpDelete]
         public bool Delete(string id)
         {
-            return breweryRepository.DeleteBrewery(id);
+            return _breweryRepository.DeleteBrewery(id);
         }
     }
 }

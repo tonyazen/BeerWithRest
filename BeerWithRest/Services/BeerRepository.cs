@@ -2,11 +2,14 @@
 using System;
 using System.Linq;
 using System.Web;
+using log4net;
 
 namespace BeerWithRest.Services
 {
     public class BeerRepository
     {
+        private static readonly ILog _logger = LogManager.GetLogger(typeof(BeerRepository));
+
         private const string CacheKey = "BeerStore";
 
         public BeerRepository()
@@ -22,12 +25,18 @@ namespace BeerWithRest.Services
                         new Beer
                         {
                             Id = "1",
-                            Name = "Red's Rye"
+                            Name = "Red's Rye",
+                            Abv = "6.6%",
+                            Brewery = "Founder's Brewing Co.",
+                            Style = "Indian Pale Ale"
                         },
                         new Beer
                         {
                             Id = "2",
-                            Name = "Dragon's Milk"
+                            Name = "Dragon's Milk",
+                            Abv = "11%",
+                            Brewery = "New Holland Brewing Co.",
+                            Style = "Stout"
                         }
                     };
 
@@ -50,7 +59,7 @@ namespace BeerWithRest.Services
                     new Beer
                     {
                         Id = "0",
-                        Name = "Placeholder"
+                        Name = ""
                     }
             };
         }
@@ -68,7 +77,7 @@ namespace BeerWithRest.Services
                 }
                 catch (Exception ex)
                 {
-                    //log it
+                    _logger.Error($"GetBeer Exception. Id: {id}. Exception: {ex}");
                     return null;
                 }
             }
@@ -93,7 +102,7 @@ namespace BeerWithRest.Services
                 }
                 catch (Exception ex)
                 {
-                    //log it
+                    _logger.Error($"AddBeer Exception. Beer: {beer.Name}, {beer.Style}, {beer.Abv}, {beer.Brewery}. Exception: {ex}");
                     return false;
                 }
             }
@@ -124,7 +133,7 @@ namespace BeerWithRest.Services
                 }
                 catch (Exception ex)
                 {
-                    //log it
+                    _logger.Error($"UpdateBeer Exception. Id: {updateBeer.Id}. Exception: {ex}");
                     return updateBeer;
                 }
             }
@@ -149,7 +158,7 @@ namespace BeerWithRest.Services
                 }
                 catch (Exception ex)
                 {
-                    //log it
+                    _logger.Error($"DeleteBeer Exception. Id: {id}. Exception: {ex}.");
                     return false;
                 }
             }

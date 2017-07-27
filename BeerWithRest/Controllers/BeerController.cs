@@ -6,39 +6,39 @@ namespace BeerWithRest.Controllers
 {
     public class BeerController : ApiController
     {
-        private BeerRepository beerRepository;
+        private readonly BeerRepository _beerRepository;
 
         public BeerController()
         {
-            this.beerRepository = new BeerRepository();
+            _beerRepository = new BeerRepository();
         }
 
         public Beer[] Get()
         {
-            return beerRepository.GetAllBeers();
+            return _beerRepository.GetAllBeers();
         }
 
         public Beer Get(string id)
         {
-            return beerRepository.GetBeer(id);
+            return _beerRepository.GetBeer(id);
         }
 
         [HttpPost]
         public bool Post(Beer beer)
         {
-            return beerRepository.AddBeer(beer);
+            return _beerRepository.AddBeer(beer);
         }
 
         [HttpPut]
         public Beer Put(Beer beer)
         {
-            return beerRepository.UpdateBeer(beer);
+            return _beerRepository.UpdateBeer(beer);
         }
 
         [HttpDelete]
         public bool Delete(string id)
         {
-            return beerRepository.DeleteBeer(id);
+            return _beerRepository.DeleteBeer(id);
         }
     }
 }

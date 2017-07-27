@@ -2,11 +2,14 @@
 using System.Linq;
 using System.Web;
 using BeerWithRest.Models;
+using log4net;
 
 namespace BeerWithRest.Services
 {
     public class BreweryRepository
     {
+        private static readonly ILog _logger = LogManager.GetLogger(typeof(BreweryRepository));
+
         private const string CacheKey = "BreweryStore";
 
         public BreweryRepository()
@@ -105,7 +108,7 @@ namespace BeerWithRest.Services
                     new Brewery
                     {
                         Id = "0",
-                        Name = "Placeholder"
+                        Name = ""
                     }
             };
         }
@@ -123,7 +126,7 @@ namespace BeerWithRest.Services
                 }
                 catch (Exception ex)
                 {
-                    //log it
+                    _logger.Error($"GetBrewery Exception. Id: {id}. Exception: {ex}");
                     return null;
                 }
             }
@@ -148,7 +151,7 @@ namespace BeerWithRest.Services
                 }
                 catch (Exception ex)
                 {
-                    //log it
+                    _logger.Error($"AddBrewery Exception. Beer: {brewery.Name}, {brewery.Address.Street1}, {brewery.Address.Street2}, {brewery.Address.City}, {brewery.Address.StateCode}, {brewery.Address.ZipCode}. Exception: {ex}");
                     return false;
                 }
             }
@@ -179,7 +182,7 @@ namespace BeerWithRest.Services
                 }
                 catch (Exception ex)
                 {
-                    //log it
+                    _logger.Error($"UpdateBrewery Exception. Id: {updateBrewery.Id}. Exception: {ex}");
                     return updateBrewery;
                 }
             }
@@ -204,7 +207,7 @@ namespace BeerWithRest.Services
                 }
                 catch (Exception ex)
                 {
-                    //log it
+                    _logger.Error($"DeleteBrewery Exception. Id: {id}. Exception: {ex}.");
                     return false;
                 }
             }
