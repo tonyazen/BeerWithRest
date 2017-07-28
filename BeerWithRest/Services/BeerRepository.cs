@@ -20,7 +20,7 @@ namespace BeerWithRest.Services
             {
                 if (ctx.Cache[CacheKey] == null)
                 {
-                    var beers = new Beer[]
+                    var beers = new []
                     {
                         new Beer
                         {
@@ -54,12 +54,15 @@ namespace BeerWithRest.Services
                 return (Beer[])ctx.Cache[CacheKey];
             }
 
-            return new Beer[]
+            return new []
             {
                     new Beer
                     {
                         Id = "0",
-                        Name = ""
+                        Name = "",
+                        Abv = "",
+                        Brewery = "",
+                        Style = ""
                     }
             };
         }
@@ -125,7 +128,7 @@ namespace BeerWithRest.Services
                         {
                             beer.Name = updateBeer.Name;
                         }
-                    };
+                    }
 
                     ctx.Cache[CacheKey] = currentData.ToArray();
 
