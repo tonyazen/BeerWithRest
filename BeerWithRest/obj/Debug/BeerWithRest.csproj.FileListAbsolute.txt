@@ -198,3 +198,5 @@ D:\working\tonya\BeerWithRest\BeerWithRest\bin\BeerWithRest.dll.config
 D:\working\tonya\BeerWithRest\BeerWithRest\bin\BeerWithRest.dll
 D:\working\tonya\BeerWithRest\BeerWithRest\bin\BeerWithRest.pdb
 D:\working\tonya\BeerWithRest\BeerWithRest\obj\Debug\BeerWithRest.csprojResolveAssemblyReference.cache
+C:\working\tonyazen\BeerWithRest\BeerWithRest\bin\log4net.dll
+C:\working\tonyazen\BeerWithRest\BeerWithRest\bin\log4net.xml
