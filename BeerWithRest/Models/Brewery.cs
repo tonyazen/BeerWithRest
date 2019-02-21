@@ -5,6 +5,8 @@ namespace BeerWithRest.Models
     {
         public string Id { get; set; }
         public string Name { get; set; }
+        public string WebAddress { get; set; }
+        public string Phone { get; set; }
         public BreweryAddress Address { get; set; }
     }
 

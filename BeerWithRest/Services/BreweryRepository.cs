@@ -25,67 +25,67 @@ namespace BeerWithRest.Services
                         new Brewery
                         {
                             Id = "1",
-                            Name = "Founder's Brewing Co.",
+                            Name = "Detroit Beer Co.",
                             Address = new BreweryAddress
                             {
-                                Street1 = "235 Grandville Ave SW",
+                                Street1 = "1529 E. Broadway",
                                 Street2 = "",
-                                City = "Grand Rapids",
+                                City = "Detroit",
                                 StateCode = "MI",
-                                ZipCode = "49503"
-                            }
+                                ZipCode = "48226"
+							}
                         },
                         new Brewery
                         {
                             Id = "2",
-                            Name = "Perrin Brewing Co.",
+                            Name = "Jolly Pumpkin Pizzeria & Brewery",
                             Address = new BreweryAddress
                             {
-                                Street1 = "5910 Comstock Park Dr NW",
-                                Street2 = "",
-                                City = "Comstock Park",
+                                Street1 = "441 W Canfield St",
+                                Street2 = "#9",
+                                City = "Detroit",
                                 StateCode = "MI",
-                                ZipCode = "49321"
-                            }
+                                ZipCode = "48201"
+							}
                         },
                         new Brewery
                         {
                             Id = "3",
-                            Name = "Bell's Brewery",
+                            Name = "Atwater Brewery & Tap House",
                             Address = new BreweryAddress
                             {
-                                Street1 = "355 E Kalamazoo Ave",
+                                Street1 = "237 Jos Campau",
                                 Street2 = "",
-                                City = "Kalamazoo",
+                                City = "Detroit",
                                 StateCode = "MI",
-                                ZipCode = "49007"
-                            }
+                                ZipCode = "48207"
+							}
                         },
                         new Brewery
                         {
                             Id = "4",
-                            Name = "Greyline Brewing Co.",
+                            Name = "Founders Brewing Co. Detroit",
                             Address = new BreweryAddress
                             {
-                                Street1 = "1727 Alpine Ave NW",
+                                Street1 = "456 Charlotte St",
                                 Street2 = "",
-                                City = "Grand Rapids",
+                                City = "Detroit",
                                 StateCode = "MI",
-                                ZipCode = "49504"
-                            }
+                                ZipCode = "48201"
+							}
                         },
                         new Brewery
                         {
                             Id = "5",
-                            Name = "City Built Brewing",
+                            Name = "Granite City Brewery",
                             Address = new BreweryAddress
                             {
-                                Street1 = "820 Monroe Ave NW #155",
-                                Street2 = "",
-                                City = "Grand Rapids",
+                                Street1 = "100 Renaissance Center",
+                                Street2 = "Ste. 1101",
+                                City = "Detroit",
                                 StateCode = "MI",
-                                ZipCode = "49503"
-                            }
+                                ZipCode = "48243"
+							}
                         },
                     };
 

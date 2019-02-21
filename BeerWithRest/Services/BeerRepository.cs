@@ -6,7 +6,7 @@ using log4net;
 
 namespace BeerWithRest.Services
 {
-    public class BeerRepository
+    public class BeerRepository : IBeerRepository
     {
         private static readonly ILog _logger = LogManager.GetLogger(typeof(BeerRepository));
 
@@ -22,23 +22,47 @@ namespace BeerWithRest.Services
                 {
                     var beers = new []
                     {
-                        new Beer
-                        {
-                            Id = "1",
-                            Name = "Red's Rye",
-                            Abv = "6.6%",
-                            Brewery = "Founder's Brewing Co.",
-                            Style = "Indian Pale Ale"
-                        },
-                        new Beer
-                        {
-                            Id = "2",
-                            Name = "Dragon's Milk",
-                            Abv = "11%",
-                            Brewery = "New Holland Brewing Co.",
-                            Style = "Stout"
-                        }
-                    };
+						new Beer
+						{
+							Id = "1",
+							Name = "Red Eye Rye",
+							Abv = "6.7%",
+							BreweryId = "Detroit Beer Co.",
+							Style = "Rye"
+						},
+						new Beer
+						{
+							Id = "2",
+							Name = "Poetic Pestilence",
+							Abv = "11%",
+							BreweryId = "Jolly Pumpkin Artisan Ales",
+							Style = "India Pale Ale"
+						},
+						new Beer
+						{
+							Id = "3",
+							Name = "Vanilla Java Porter",
+							Abv = "5%",
+							BreweryId = "Atwater Brewery",
+							Style = "Porter"
+						},
+						new Beer
+						{
+							Id = "4",
+							Name = "Breakfast Stout",
+							Abv = "8.3%",
+							BreweryId = "Founders Brewing Co.",
+							Style = "Stout"
+						},
+						new Beer
+						{
+							Id = "5",
+							Name = "The Duke",
+							Abv = "5.4%",
+							BreweryId = "Granite City Brewery",
+							Style = "Pale Ale"
+						}
+					};
 
                     ctx.Cache[CacheKey] = beers;
                 }
@@ -61,7 +85,7 @@ namespace BeerWithRest.Services
                         Id = "0",
                         Name = "",
                         Abv = "",
-                        Brewery = "",
+                        BreweryId = "",
                         Style = ""
                     }
             };
@@ -105,7 +129,7 @@ namespace BeerWithRest.Services
                 }
                 catch (Exception ex)
                 {
-                    _logger.Error($"AddBeer Exception. Beer: {beer.Name}, {beer.Style}, {beer.Abv}, {beer.Brewery}. Exception: {ex}");
+                    _logger.Error($"AddBeer Exception. Beer: {beer.Name}, {beer.Style}, {beer.Abv}, {beer.BreweryId}. Exception: {ex}");
                     return false;
                 }
             }
