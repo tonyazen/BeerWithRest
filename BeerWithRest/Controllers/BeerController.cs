@@ -3,37 +3,31 @@ using System.Net;
 using System.Web.Http;
 using BeerWithRest.Models;
 using BeerWithRest.Services;
-using log4net;
 
 namespace BeerWithRest.Controllers
 {
-	[RoutePrefix("api/v1")] //TODO: maybe do this instead of route info below
 	public class BeerController : ApiController
 	{
 		private readonly IBeerRepository _beerRepository;
-		private readonly ILog _logger;
 
 		public BeerController() //TODO: Changed this to be injected into constructor rather than creating new one which should be better for testing ???
 		{
 			_beerRepository = new BeerRepository();
-			_logger = LogManager.GetLogger("logger");
-			//_beerRepository = beerRepository;
-			//_logger = logger;
 		}
 
-		[Route("beer/"), HttpGet]
+		[Route("api/v1/beer/"), HttpGet]
 		public Beer[] Get()
 		{
 			return _beerRepository.GetAllBeers();
 		}
 
-		[Route("beer/{id}"), HttpGet]
+		[Route("api/v1/beer/{id}"), HttpGet]
 		public Beer Get(string id)
 		{
 			return _beerRepository.GetBeer(id);
 		}
 
-		[Route("beer/"), HttpPost]
+		[Route("api/v1/beer/"), HttpPost]
 		public IHttpActionResult Post(Beer beer) //TODO: Use DTOs (per-request objects). Example: Post([FromBody] BeerDto beerDto)
 		{
 			//TODO: Validate all data
@@ -68,13 +62,13 @@ namespace BeerWithRest.Controllers
 			return Ok(beer);
 		}
 
-		[Route("beer/"), HttpPut]
+		[Route("api/v1/beer/"), HttpPut]
 		public Beer Put(Beer beer)
 		{
 			return _beerRepository.UpdateBeer(beer);
 		}
 
-		[Route("beer/"), HttpDelete]
+		[Route("api/v1/beer/"), HttpDelete]
 		public bool Delete(string id)
 		{
 			return _beerRepository.DeleteBeer(id);
