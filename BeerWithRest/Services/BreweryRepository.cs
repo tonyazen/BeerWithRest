@@ -24,69 +24,69 @@ namespace BeerWithRest.Services
                     {
                         new Brewery
                         {
-                            Id = "1",
-                            Name = "Detroit Beer Co.",
-                            Address = new BreweryAddress
-                            {
-                                Street1 = "1529 E. Broadway",
-                                Street2 = "",
-                                City = "Detroit",
-                                StateCode = "MI",
-                                ZipCode = "48226"
-							}
+                            Id = "10001",
+	                        Name = "Granite City Brewery",
+	                        Address = new BreweryAddress
+	                        {
+		                        Street1 = "100 Renaissance Center",
+		                        Street2 = "Ste. 1101",
+		                        City = "Detroit",
+		                        StateCode = "MI",
+		                        ZipCode = "48243"
+	                        }                           
                         },
                         new Brewery
                         {
-                            Id = "2",
-                            Name = "Jolly Pumpkin Pizzeria & Brewery",
-                            Address = new BreweryAddress
-                            {
-                                Street1 = "441 W Canfield St",
-                                Street2 = "#9",
-                                City = "Detroit",
-                                StateCode = "MI",
-                                ZipCode = "48201"
-							}
+                            Id = "10002",
+	                        Name = "Atwater Brewery & Tap House",
+	                        Address = new BreweryAddress
+	                        {
+		                        Street1 = "237 Jos Campau",
+		                        Street2 = "",
+		                        City = "Detroit",
+		                        StateCode = "MI",
+		                        ZipCode = "48207"
+	                        }
                         },
                         new Brewery
                         {
-                            Id = "3",
-                            Name = "Atwater Brewery & Tap House",
-                            Address = new BreweryAddress
-                            {
-                                Street1 = "237 Jos Campau",
-                                Street2 = "",
-                                City = "Detroit",
-                                StateCode = "MI",
-                                ZipCode = "48207"
-							}
+                            Id = "10003",
+	                        Name = "Detroit Beer Co.",
+	                        Address = new BreweryAddress
+	                        {
+		                        Street1 = "1529 E. Broadway",
+		                        Street2 = "",
+		                        City = "Detroit",
+		                        StateCode = "MI",
+		                        ZipCode = "48226"
+	                        }                            
                         },
                         new Brewery
                         {
-                            Id = "4",
-                            Name = "Founders Brewing Co. Detroit",
-                            Address = new BreweryAddress
-                            {
-                                Street1 = "456 Charlotte St",
-                                Street2 = "",
-                                City = "Detroit",
-                                StateCode = "MI",
-                                ZipCode = "48201"
-							}
+                            Id = "10004",
+	                        Name = "Jolly Pumpkin Pizzeria & Brewery",
+	                        Address = new BreweryAddress
+	                        {
+		                        Street1 = "441 W Canfield St",
+		                        Street2 = "#9",
+		                        City = "Detroit",
+		                        StateCode = "MI",
+		                        ZipCode = "48201"
+	                        }
                         },
                         new Brewery
                         {
-                            Id = "5",
-                            Name = "Granite City Brewery",
-                            Address = new BreweryAddress
-                            {
-                                Street1 = "100 Renaissance Center",
-                                Street2 = "Ste. 1101",
-                                City = "Detroit",
-                                StateCode = "MI",
-                                ZipCode = "48243"
+                            Id = "10005",
+	                        Name = "Founders Brewing Co. Detroit",
+	                        Address = new BreweryAddress
+	                        {
+		                        Street1 = "456 Charlotte St",
+		                        Street2 = "",
+		                        City = "Detroit",
+		                        StateCode = "MI",
+		                        ZipCode = "48201"
 							}
-                        },
+						}
                     };
 
                     ctx.Cache[CacheKey] = breweries;

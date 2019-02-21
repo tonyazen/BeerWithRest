@@ -27,7 +27,7 @@ namespace BeerWithRest.Services
 							Id = "1",
 							Name = "Red Eye Rye",
 							Abv = "6.7%",
-							BreweryId = "Detroit Beer Co.",
+							BreweryId = "10003",
 							Style = "Rye"
 						},
 						new Beer
@@ -35,7 +35,7 @@ namespace BeerWithRest.Services
 							Id = "2",
 							Name = "Poetic Pestilence",
 							Abv = "11%",
-							BreweryId = "Jolly Pumpkin Artisan Ales",
+							BreweryId = "10004",
 							Style = "India Pale Ale"
 						},
 						new Beer
@@ -43,7 +43,7 @@ namespace BeerWithRest.Services
 							Id = "3",
 							Name = "Vanilla Java Porter",
 							Abv = "5%",
-							BreweryId = "Atwater Brewery",
+							BreweryId = "10002",
 							Style = "Porter"
 						},
 						new Beer
@@ -51,7 +51,7 @@ namespace BeerWithRest.Services
 							Id = "4",
 							Name = "Breakfast Stout",
 							Abv = "8.3%",
-							BreweryId = "Founders Brewing Co.",
+							BreweryId = "10005",
 							Style = "Stout"
 						},
 						new Beer
@@ -59,7 +59,7 @@ namespace BeerWithRest.Services
 							Id = "5",
 							Name = "The Duke",
 							Abv = "5.4%",
-							BreweryId = "Granite City Brewery",
+							BreweryId = "10001",
 							Style = "Pale Ale"
 						}
 					};
