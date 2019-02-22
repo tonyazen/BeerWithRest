@@ -68,7 +68,7 @@ namespace BeerWithRest.Controllers
 			return _beerRepository.UpdateBeer(beer);
 		}
 
-		[Route("api/v1/beer/"), HttpDelete]
+		[Route("api/v1/beer/{id}"), HttpDelete]
 		public bool Delete(string id)
 		{
 			return _beerRepository.DeleteBeer(id);

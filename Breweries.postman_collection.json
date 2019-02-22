@@ -1,0 +1,54 @@
+{
+	"info": {
+		"_postman_id": "1d9f16f3-1860-e6d5-ff64-74e593ffbfc6",
+		"name": "Breweries",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:56770/api/brewery",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:56770/api/brewery",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "56770",
+					"path": [
+						"api",
+						"brewery"
+					]
+				},
+				"description": "Get all breweries"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:56770/api/brewery",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:56770/api/brewery/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "56770",
+					"path": [
+						"api",
+						"brewery",
+						"4"
+					]
+				},
+				"description": "Get a brewery"
+			},
+			"response": []
+		}
+	]
+}
