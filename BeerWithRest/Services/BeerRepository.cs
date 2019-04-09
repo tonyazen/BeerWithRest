@@ -10,63 +10,63 @@ namespace BeerWithRest.Services
     {
         private static readonly ILog _logger = LogManager.GetLogger(typeof(BeerRepository));
 
-        private const string CacheKey = "BeerStore";
-
+        private const string BeerCacheKey = "BeerStore";
+	    private const string LastBeerIdCacheKey = "BeerIdStore";
         public BeerRepository()
         {
             var ctx = HttpContext.Current;
 
             if (ctx != null)
             {
-                if (ctx.Cache[CacheKey] == null)
+                if (ctx.Cache[BeerCacheKey] == null)
                 {
                     var beers = new []
                     {
 						new Beer
 						{
 							Id = "1",
-							Name = "Red Eye Rye",
-							Abv = "6.7%",
-							BreweryId = "10003",
-							Style = "Rye"
+							Name = "Red's Rye",
+							Abv = "6.6%",
+							BreweryId = "10005",
+							Style = "Indian Pale Ale"
 						},
 						new Beer
 						{
 							Id = "2",
-							Name = "Poetic Pestilence",
-							Abv = "11%",
-							BreweryId = "10004",
-							Style = "India Pale Ale"
+							Name = "DryPA",
+							Abv = "6.2%",
+							BreweryId = "10009",
+							Style = "Pale Ale"
 						},
 						new Beer
 						{
 							Id = "3",
-							Name = "Vanilla Java Porter",
-							Abv = "5%",
-							BreweryId = "10002",
-							Style = "Porter"
+							Name = "Dragon's Milk",
+							Abv = "11%",
+							BreweryId = "10007",
+							Style = "Stout"
 						},
 						new Beer
 						{
 							Id = "4",
-							Name = "Breakfast Stout",
-							Abv = "8.3%",
-							BreweryId = "10005",
+							Name = "Chaga Khan",
+							Abv = "10.4",
+							BreweryId = "10008",
 							Style = "Stout"
 						},
 						new Beer
 						{
 							Id = "5",
-							Name = "The Duke",
-							Abv = "5.4%",
-							BreweryId = "10001",
-							Style = "Pale Ale"
+							Name = "Grapefruit IPA",
+							Abv = "5%",
+							BreweryId = "10006",
+							Style = "Indian Pale Ale"
 						}
 					};
-
-                    ctx.Cache[CacheKey] = beers;
+                    ctx.Cache[BeerCacheKey] = beers;
+	                ctx.Cache[LastBeerIdCacheKey] = 5;
                 }
-            }
+			}
         }
 
         public Beer[] GetAllBeers()
@@ -75,7 +75,7 @@ namespace BeerWithRest.Services
 
             if (ctx != null)
             {
-                return (Beer[])ctx.Cache[CacheKey];
+                return (Beer[])ctx.Cache[BeerCacheKey];
             }
 
             return new []
@@ -99,7 +99,7 @@ namespace BeerWithRest.Services
             {
                 try
                 {
-                    var currentData = ((Beer[])ctx.Cache[CacheKey]).ToList();
+                    var currentData = ((Beer[])ctx.Cache[BeerCacheKey]).ToList();
                     return currentData.FirstOrDefault(beer => beer.Id.ToString() == id);
                 }
                 catch (Exception ex)
@@ -114,17 +114,21 @@ namespace BeerWithRest.Services
 
         public bool AddBeer(Beer beer)
         {
+
             var ctx = HttpContext.Current;
 
             if (ctx != null)
             {
                 try
                 {
-                    var currentData = ((Beer[])ctx.Cache[CacheKey]).ToList();
+	                var beerId = Convert.ToInt32(ctx.Cache[LastBeerIdCacheKey]) + 1;
+					beer.Id = beerId.ToString();
+                    var currentData = ((Beer[])ctx.Cache[BeerCacheKey]).ToList();
                     currentData.Add(beer);
-                    ctx.Cache[CacheKey] = currentData.ToArray();
+                    ctx.Cache[BeerCacheKey] = currentData.ToArray();
+	                ctx.Cache[LastBeerIdCacheKey] = beerId;
 
-                    return true;
+					return true;
 
                 }
                 catch (Exception ex)
@@ -145,7 +149,7 @@ namespace BeerWithRest.Services
             {
                 try
                 {
-                    var currentData = ((Beer[])ctx.Cache[CacheKey]).ToList();
+                    var currentData = ((Beer[])ctx.Cache[BeerCacheKey]).ToList();
                     foreach (var beer in currentData)
                     {
                         if (beer.Id == updateBeer.Id)
@@ -154,7 +158,7 @@ namespace BeerWithRest.Services
                         }
                     }
 
-                    ctx.Cache[CacheKey] = currentData.ToArray();
+                    ctx.Cache[BeerCacheKey] = currentData.ToArray();
 
                     return currentData.FirstOrDefault(beer => beer.Id == updateBeer.Id);
                 }
@@ -176,10 +180,10 @@ namespace BeerWithRest.Services
             {
                 try
                 {
-                    var currentData = ((Beer[])ctx.Cache[CacheKey]).ToList();
+                    var currentData = ((Beer[])ctx.Cache[BeerCacheKey]).ToList();
                     var beerToRemove = currentData.FirstOrDefault(beer => beer.Id.ToString() == id);
                     currentData.Remove(beerToRemove);
-                    ctx.Cache[CacheKey] = currentData.ToArray();
+                    ctx.Cache[BeerCacheKey] = currentData.ToArray();
 
                     return true;
                 }

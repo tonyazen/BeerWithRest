@@ -15,19 +15,19 @@ namespace BeerWithRest.Controllers
 			_beerRepository = new BeerRepository();
 		}
 
-		[Route("api/v1/beer/"), HttpGet]
+		[Route("api/beer/"), HttpGet]
 		public Beer[] Get()
 		{
 			return _beerRepository.GetAllBeers();
 		}
 
-		[Route("api/v1/beer/{id}"), HttpGet]
+		[Route("api/beer/{id}"), HttpGet]
 		public Beer Get(string id)
 		{
 			return _beerRepository.GetBeer(id);
 		}
 
-		[Route("api/v1/beer/"), HttpPost]
+		[Route("api/beer/"), HttpPost]
 		public IHttpActionResult Post(Beer beer) //TODO: Use DTOs (per-request objects). Example: Post([FromBody] BeerDto beerDto)
 		{
 			//TODO: Validate all data
@@ -62,13 +62,13 @@ namespace BeerWithRest.Controllers
 			return Ok(beer);
 		}
 
-		[Route("api/v1/beer/"), HttpPut]
+		[Route("api/beer/{id}"), HttpPut]
 		public Beer Put(Beer beer)
 		{
 			return _beerRepository.UpdateBeer(beer);
 		}
 
-		[Route("api/v1/beer/{id}"), HttpDelete]
+		[Route("api/beer/{id}"), HttpDelete]
 		public bool Delete(string id)
 		{
 			return _beerRepository.DeleteBeer(id);
